@@ -1,0 +1,2 @@
+python -m django startproject manga_holic_django
+python manage.py startapp app
