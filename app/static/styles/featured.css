@@ -1,0 +1,14 @@
+.manga-cover {
+    width: 250px; 
+    height: 350px;
+    display: block; 
+    
+  }
+
+h3 {
+    color: white;
+}
+
+p{
+  text-align: justify;
+}

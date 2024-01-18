@@ -1,0 +1,11 @@
+.button-cstm {
+    width: 100% !important;
+}
+
+.error-message{
+    color: red;
+}
+
+.container{
+    max-width: 500px;
+}

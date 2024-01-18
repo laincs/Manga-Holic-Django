@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans&family=Rubik+Lines&family=Rubik+Maps&display=swap');
+
+header {
+    background-color: rgb(46, 46, 46);
+    background-image: url('../src/images/onepiece_banner.jpg');
+    padding: 1rem 1rem;
+    border-left: none;
+    border-right: none;
+    overflow-y: hidden;
+}
+
+.title {
+    font-family: 'Rubik Lines', sans-serif;
+    color: white;
+}
+
+ul.navbar-nav a {
+    text-decoration:none;
+    font-size: 22px !important;
+}
+
+a:hover {
+    text-decoration:none;
+}
+
+@media (max-width: 1000px) {
+    .title {
+        font-size: 25px !important;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+iframe {
+    width: 100%;
+    height: 100px;
+    border: none;
+    background: transparent;
+    top: 0;
+    left: 0;
+    position: fixed;
+    z-index: 50; 
+}
