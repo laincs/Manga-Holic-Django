@@ -10,20 +10,18 @@
 
 <div class="news-container-flexbox">
     <section>
-            <h1>Últimas Noticias</h1>
-            <ul>
-                {% for news_item in latest_news %}
-                    <li>
-                        <br>
+        <h1>Últimas Noticias</h1>
+        <ul class="news-list">
+            {% for news_item in latest_news %}
+                <li>
+                    <a href="{% url 'app:news_detail' pk=news_item.pk %}">
                         <h2>{{ news_item.title }}</h2>
-                        <br>
-                        <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" width="1100" height="500">
-                        <br>
-                        <p>{{ news_item.content }}</p>
-                        <br>
-                    </li>
-                {% endfor %}
-            </ul>
+                        <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" width="300" height="200">
+                        <p>{{ news_item.content|slice:":100" }}</p>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
     </section>
 
     <div class="pagination">

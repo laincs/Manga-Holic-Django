@@ -1,5 +1,5 @@
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import News
 
 def home(request):
@@ -15,10 +15,6 @@ def home(request):
     }
 
     return render(request, 'app/home.html', context)
-
-""" def news(request):
-    latest_news = News.objects.all()[:5]  # Ajusta según tu lógica para obtener las noticias
-    return render(request, 'app/news.html', {'latest_news': latest_news}) """
 
 def news(request):
     all_news = News.objects.all()
@@ -38,3 +34,7 @@ def news(request):
     }
 
     return render(request, 'app/news.html', context)
+
+def news_detail(request, pk):
+    news_item = get_object_or_404(News, pk=pk)
+    return render(request, 'app/news_detail.html', {'news_item': news_item})
