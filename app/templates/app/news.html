@@ -15,9 +15,10 @@
             {% for news_item in latest_news %}
                 <li>
                     <a href="{% url 'app:news_detail' pk=news_item.pk %}">
-                        <h2>{{ news_item.title }}</h2>
                         <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" width="300" height="200">
-                        <p>{{ news_item.content|slice:":100" }}</p>
+                        <h5>{{ news_item.title }}</h5>
+                        <br>
+                        <h6>{{ news_item.content|slice:":100" }}...</h6>
                     </a>
                 </li>
             {% endfor %}

@@ -1,6 +1,7 @@
 .news-container-flexbox {
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column;
     justify-content: space-around;
 }
 
@@ -10,8 +11,9 @@
 
 .news-list li {
     margin: 10px;
-    padding: 10px;
+    padding: 15px;
     border: 1px solid #ddd;
+    border-radius: 5px;
     text-align: center;
 }
 
@@ -23,7 +25,8 @@
 .news-list img {
     object-fit: cover;
     max-width: 100%;
-    height: auto;
+    height: 40%;
+    margin-bottom: 20px;
 }
 
 .pagination {
@@ -53,4 +56,22 @@
 .pagination .current {
     background-color: #4CAF50;
     color: white;
+}
+
+li{
+    max-width: 300px;
+    max-height: 400px;
+}
+
+ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h5, h6{
+    text-align: justify;
+}
+
+h6{
+    color: gray !important;
 }

@@ -19,7 +19,7 @@ def home(request):
 def news(request):
     all_news = News.objects.all()
 
-    paginator = Paginator(all_news, 3)
+    paginator = Paginator(all_news, 8)
     page = request.GET.get('page')
 
     try:

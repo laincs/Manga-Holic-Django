@@ -25,16 +25,7 @@ section {
 }
 
 body {
-    margin: 0;
     background-color: #1d1d1d;
-    min-height: 100vh;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
 }
 
 footer {
@@ -43,16 +34,9 @@ footer {
     padding: 1em;
 }
 
-li, h2, p, .error-message{
+li, h2, p, h4, h5, h6, h1, .error-message{
     color: white;
     font-family: 'PT Sans', sans-serif;
-}
-
-iframe {
-    border: none;
-    overflow: hidden;
-    width:  100% ;
-    z-index: 50; 
 }
 
 .manga-week {
@@ -60,10 +44,6 @@ iframe {
     width: auto; 
     display: block; 
     object-fit: cover;
-  }
-
-.ix{
-    z-index: 1; 
 }
 
 .manga-info{
