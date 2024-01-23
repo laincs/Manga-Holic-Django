@@ -1,15 +1,21 @@
 {% extends 'app/base.html' %}
 {% load static %}
+{% block title %}Home{% endblock %}
+
+{% block extra_css %}
+  <link rel="stylesheet" href="{% static 'styles/carousel.css' %}">
+{% endblock %}
+
 {% block content %}
 
 <div id="demo" class="carousel slide" data-ride="carousel">
   <ul class="carousel-indicators">
-      {% for news_item in latest_news|slice:":3" %}
+      {% for news_item in latest_news|slice:":5" %}
           <li data-target="#demo" data-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></li>
       {% endfor %}
   </ul>
   <div class="carousel-inner">
-      {% for news_item in latest_news|slice:":3" %}
+      {% for news_item in latest_news|slice:":5" %}
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
               <img src="{{ news_item.image.url }}" alt="{{ news_item.title }}" width="1100" height="500">
               <div class="carousel-caption">
