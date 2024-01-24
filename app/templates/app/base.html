@@ -21,15 +21,12 @@
   {% block extra_css %}{% endblock %}
 </head>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    function setSideBarState() {
         var toggleSidebarButton = document.getElementById("toggleSidebarButton");
         var sidebar = document.getElementById("sidebar");
-
-        toggleSidebarButton.addEventListener("click", function() {
-            sidebar.classList.toggle("sidebar-active");
-            touch.classList.toggle("touch-active");
-        });
-    });
+        sidebar.classList.toggle("sidebar-active");
+        touch.classList.toggle("touch-active");
+}
 </script>
 <body>
     <div id="sidebar">
@@ -63,18 +60,18 @@
     
     <div id="body-content">
         <header>
-            <button id="toggleSidebarButton" onclick="setSideBarState(true)">≡</button>
+            <button id="toggleSidebarButton" onclick="setSideBarState()">≡</button>
             <form method="get">
                 <input type="text" name="q" placeholder="Buscar...">
                 <button type="submit">Buscar</button>
             </form>
         </header>
 
-        <div id="touch" onclick="setSideBarState(false)"></div>
-
         <div id="content">
             {% block content %}{% endblock %}
         </div>
+
+        <div id="touch" onclick="setSideBarState()"></div>
         <footer>
             <div class="row justify-content-end">
               <a href="#head" class="col text-left text-white">Ir al Inicio</a>
