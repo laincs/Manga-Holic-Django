@@ -1,6 +1,9 @@
 body {
     background-color: #1d1d1d;
+    display: flex;
+    height: 100%;
 }
+
 
 footer {
     width: 100%;

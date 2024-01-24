@@ -20,58 +20,79 @@
 
   {% block extra_css %}{% endblock %}
 </head>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var toggleSidebarButton = document.getElementById("toggleSidebarButton");
+        var sidebar = document.getElementById("sidebar");
+
+        toggleSidebarButton.addEventListener("click", function() {
+            sidebar.classList.toggle("sidebar-active");
+            touch.classList.toggle("touch-active");
+        });
+    });
+</script>
 <body>
-    <header>
-        <a class="title navbar-brand" href="{% url 'app:home' %}" target="_parent">MANGA ⸸ HOLIC</a>
-        <form method="get">
-            <input type="text" name="q" placeholder="Buscar...">
-            <button type="submit">Buscar</button>
-        </form>
-    </header>
+    <div id="sidebar">
+        <ul class="navbar-nav">
+            <br>
+            <li id="item-index" class="nav-item">
+                <a class="title navbar-brand" href="{% url 'app:home' %}" target="_parent">MANGA ⸸ HOLIC</a>
+            </li>
+            <br>
+
+            <li id="nav-item" class="nav-item active">
+                <a class="nav-link" href="{% url 'app:home' %}" target="_parent">Inicio</a>
+            </li>
+            <li id="nav-item" class="nav-item">
+                <a class="nav-link" href="{% url 'app:news' %}" target="_parent">Noticias</a>
+            </li>
+            <li id="nav-item" class="nav-item">
+                <a class="nav-link" href="featured.html" target="_parent">Destacados</a>
+            </li>
+            <li id="nav-item" class="nav-item">
+                <a class="nav-link" href="contact.html" target="_parent">Contacto</a>
+            </li>
+            <li id="nav-item" class="nav-item">
+                <a class="nav-link" href="ourClients.html" target="_parent">Proveedores</a>
+            </li>
+            <li id="nav-item" class="nav-item">
+                <a class="nav-link" href="about.html" target="_parent">Acerca</a>
+            </li>
+        </ul>
+    </div>
+    
     <div id="body-content">
-        <div id="sidebar">
-            <ul class="navbar-nav">
-                <li id="item-index" class="nav-item active">
-                    <a class="title nav-link" href="{% url 'app:home' %}" target="_parent">Inicio</a>
-                </li>
-                <li id="item-featured" class="nav-item">
-                    <a class="title nav-link" href="{% url 'app:news' %}" target="_parent">Noticias</a>
-                </li>
-                <li id="item-featured" class="nav-item">
-                    <a class="title nav-link" href="featured.html" target="_parent">Destacados</a>
-                </li>
-                <li id="item-contact" class="nav-item">
-                    <a class="title nav-link" href="contact.html" target="_parent">Contacto</a>
-                </li>
-                <li id="item-ourClients" class="nav-item">
-                    <a class="title nav-link" href="ourClients.html" target="_parent">Proveedores</a>
-                </li>
-                <li id="item-about" class="nav-item">
-                    <a class="title nav-link" href="about.html" target="_parent">Acerca</a>
-                </li>
-                <!-- Agrega más elementos de navegación según sea necesario -->
-            </ul>
-        </div>
+        <header>
+            <button id="toggleSidebarButton" onclick="setSideBarState(true)">≡</button>
+            <form method="get">
+                <input type="text" name="q" placeholder="Buscar...">
+                <button type="submit">Buscar</button>
+            </form>
+        </header>
+
+        <div id="touch" onclick="setSideBarState(false)"></div>
+
         <div id="content">
             {% block content %}{% endblock %}
         </div>
+        <footer>
+            <div class="row justify-content-end">
+              <a href="#head" class="col text-left text-white">Ir al Inicio</a>
+        
+              <p class="col text-right" style="margin-left: auto;">
+                <a href="https://www.instagram.com/" target="_blank" class="col text-center">
+                  <img src="{% static 'image/social/rrss_ig.webp' %}" alt="Instagram" width="20" height="20">
+                </a>
+          
+                <a href="https://www.facebook.com/" target="_blank" class="col text-center">
+                    <img src="{% static 'image/social/rrss_fb.png' %}" alt="Facebook" width="30" height="30">
+                </a>
+                Copyright 2024
+              </p>
+            </div>
+        </footer>
     </div>
-    <footer>
-        <div class="row justify-content-end">
-          <a href="#head" class="col text-left text-white">Ir al Inicio</a>
     
-          <p class="col text-right" style="margin-left: auto;">
-            <a href="https://www.instagram.com/" target="_blank" class="col text-center">
-              <img src="{% static 'image/social/rrss_ig.webp' %}" alt="Instagram" width="20" height="20">
-            </a>
-      
-            <a href="https://www.facebook.com/" target="_blank" class="col text-center">
-                <img src="{% static 'image/social/rrss_fb.png' %}" alt="Facebook" width="30" height="30">
-            </a>
-            Copyright 2024
-          </p>
-        </div>
-    </footer>
     <button id="scrollToTopButton" onclick="scrollToTop()" class="btn btn-danger rounded-circle btn-lg">
         <h2>↑</h2>
     </button>
