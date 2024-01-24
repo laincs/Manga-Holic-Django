@@ -1,4 +1,5 @@
 pip install django
 python -m django startproject manga_holic_django
 python manage.py startapp app
+python manage.py createsuperuser
 python manage.py runserver

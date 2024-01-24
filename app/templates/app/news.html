@@ -9,7 +9,7 @@
 {% block content %}
 
 <div class="news-container-flexbox">
-    <section>
+    <section class="center-div">
         <h1>Últimas Noticias</h1>
         <ul class="news-list">
             {% for news_item in latest_news %}
@@ -25,7 +25,7 @@
         </ul>
     </section>
 
-    <div class="pagination">
+    <div class="pagination center-div">
         <span class="step-links">
             {% if latest_news.has_previous %}
                 <a href="?page=1">&laquo; Ir al Primero</a>

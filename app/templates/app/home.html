@@ -4,6 +4,7 @@
 
 {% block extra_css %}
   <link rel="stylesheet" href="{% static 'styles/carousel.css' %}">
+  <link rel="stylesheet" href="{% static 'styles/home.css' %}">
 {% endblock %}
 
 {% block content %}
@@ -33,7 +34,7 @@
   </a>
 </div>
 
-<main>
+<div class="center-div">
   <section>
     <h2 class="center">Last Mangas Uploaded</h2>
     <ul>
@@ -43,7 +44,7 @@
     </ul>
   </section>
 
-  <section id="manga-de-la-semana">
+  <section class="center-div">
     <h2 class="text-center">Manga de la Semana<br>Oyasumi Punpun</h2>
 
     <div class="manga-info">
@@ -70,6 +71,6 @@
     </div>
   </section>
 
-</main>
+</div>
 
 {% endblock content %}

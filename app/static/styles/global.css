@@ -1,0 +1,36 @@
+body {
+    background-color: #1d1d1d;
+}
+
+footer {
+    width: 100%;
+    background-color: #2c2c2c;
+    padding: 1em;
+}
+
+li, h2, p, h4, h5, h6, h1, .error-message {
+    color: white;
+    font-family: 'PT Sans', sans-serif;
+}
+
+#content {
+    display:flex;
+    flex-direction: column;
+}
+
+.manga-week {
+    height: 300px;
+    width: auto; 
+    display: block; 
+    object-fit: cover;
+}
+
+.manga-info {
+    max-width: 80%;
+}
+
+.center-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
