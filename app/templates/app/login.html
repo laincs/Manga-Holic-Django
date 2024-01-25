@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Login{% endblock %}
+
+{% block extra_css %}
+{% endblock %}
+
+{% block content %}
+    <div class="center-div">
+        <h2>Login</h2>
+        <form method="post" action="{% url 'app:try_login' %}">
+            {% csrf_token %}
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
+    <p>¿No tienes una cuenta? <a href="{% url 'app:signup' %}">Regístrate aquí</a>.</p>
+{% endblock content %}
