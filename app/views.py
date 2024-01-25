@@ -19,6 +19,12 @@ def ourClients(request):
 
     return render(request, 'app/ourClients.html', context)
 
+def about(request):
+    context = {
+    }
+
+    return render(request, 'app/about.html', context)
+
 def news(request):
     all_news = News.objects.all()
 

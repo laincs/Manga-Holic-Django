@@ -1,0 +1,36 @@
+{% extends 'app/base.html' %}
+{% load static %}
+{% block title %}Acerca de Nosotros{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'styles/about.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section id="mision-vision" class="center-div">
+        <div>
+            <img src="{% static 'image/about_logo.png' %}" alt="Sacrifice Logo" class="img-fluid rounded" width="100">
+            <img src="http://placekitten.com/g/200/300" alt="Kitten Image" class="img-fluid rounded" width="200" height="300">
+        </div>
+        <br>
+        <h2>Misión</h2>
+        <p>Nuestra misión en MANGA⸸HOLIC es proporcionar a los amantes del manga un espacio donde puedan acceder a una amplia variedad de mangas de forma gratuita. Nos esforzamos por ofrecer una experiencia de lectura agradable y accesible para todos.</p>
+
+        <h2>Visión</h2>
+        <p>Queremos ser el destino preferido para aquellos que buscan descubrir nuevos mangas y disfrutar de sus series favoritas sin restricciones. Aspiramos a construir una comunidad comprometida de lectores apasionados por el mundo del manga.</p>
+    </section>
+
+    <section id="objetivos-informacion" class="center-div">
+        <h2>Objetivos de la Organización</h2>
+        <ul>
+            <li>Proporcionar acceso gratuito a mangas de alta calidad.</li>
+            <li>Fomentar la diversidad de géneros y estilos de manga disponibles.</li>
+            <li>Crear una plataforma fácil de usar para la lectura en línea.</li>
+            <li>Fomentar la interacción y participación de la comunidad de lectores.</li>
+            <li>Mantener una biblioteca actualizada con las últimas publicaciones.</li>
+        </ul>
+
+        <h2>Información Adicional</h2>
+        <p>MANGA⸸HOLIC es una plataforma en línea comprometida con el amor por el manga. Nos esforzamos por mejorar continuamente y proporcionar a nuestros usuarios la mejor experiencia posible. Si tienes alguna sugerencia o comentario, ¡no dudes en ponerte en contacto con nosotros!</p>
+    </section>
+{% endblock content %}

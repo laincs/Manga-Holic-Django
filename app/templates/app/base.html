@@ -36,10 +36,6 @@
                 <a class="title navbar-brand" href="{% url 'app:home' %}" target="_parent">MANGA ⸸ HOLIC</a>
             </li>
             <br>
-
-            <li id="nav-item" class="nav-item active">
-                <a class="nav-link" href="{% url 'app:home' %}" target="_parent">Inicio</a>
-            </li>
             <li id="nav-item" class="nav-item">
                 <a class="nav-link" href="{% url 'app:news' %}" target="_parent">Noticias</a>
             </li>
@@ -53,7 +49,7 @@
                 <a class="nav-link" href="{% url 'app:clients' %}" target="_parent">Proveedores</a>
             </li>
             <li id="nav-item" class="nav-item">
-                <a class="nav-link" href="about.html" target="_parent">Acerca</a>
+                <a class="nav-link" href="{% url 'app:about' %}" target="_parent">Acerca</a>
             </li>
         </ul>
     </div>
@@ -65,6 +61,17 @@
                 <input type="text" name="q" placeholder="Buscar...">
                 <button type="submit">Buscar</button>
             </form>
+
+            {% if user.is_authenticated %}
+                <div class="saludo">Hola, {{ user.username }}</div>
+                <form method="post" action="{% url 'app:logout' %}">
+                    {% csrf_token %}
+                    <button type="submit">Cerrar sesión</button>
+                </form>
+            {% else %}
+                <a href="{% url 'app:login' %}">Iniciar sesión</a>
+                <a href="{% url 'app:registro' %}">Registrarse</a>
+            {% endif %}
         </header>
 
         <div id="content">
