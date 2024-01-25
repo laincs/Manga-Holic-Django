@@ -4,6 +4,10 @@ body {
     height: 100%;
 }
 
+#body-content{
+    width: 100%;
+}
+
 
 footer {
     width: 100%;
@@ -11,7 +15,7 @@ footer {
     padding: 1em;
 }
 
-li, h2, p, h4, h5, h6, h1, .error-message {
+li, h2, p, h4, h5, h6, h1, .error-message, th, td {
     color: white;
     font-family: 'PT Sans', sans-serif;
 }

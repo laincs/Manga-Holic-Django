@@ -13,6 +13,12 @@ def home(request):
 
     return render(request, 'app/home.html', context)
 
+def ourClients(request):
+    context = {
+    }
+
+    return render(request, 'app/ourClients.html', context)
+
 def news(request):
     all_news = News.objects.all()
 
