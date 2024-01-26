@@ -56,10 +56,21 @@ li, h2, p, h4, h5, h6, h1, .error-message, th, td, label {
     align-items: center;
 }
 
-.center-div{
+.horizontal-div{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
     align-items: center;
+    margin: 5px; 
+    gap: 10px;
+}
+
+.build-form ul, p, label{
+    min-width: 70%;
+}
+
+.build-form textarea{
+    min-width: 100%;
 }
 
 .full-height{

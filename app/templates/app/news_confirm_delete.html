@@ -7,5 +7,5 @@
     {% csrf_token %}
     <button type="submit">Sí, eliminar</button>
   </form>
-  <a href="{% url 'app:news_detail' pk=news_item.pk %}">Cancelar</a>
+  <a href="{% url 'app:news' %}">Cancelar</a>
 {% endblock %}

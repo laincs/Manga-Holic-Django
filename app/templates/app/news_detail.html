@@ -15,6 +15,17 @@
         <br/>
         <p>{{ news_item.content|linebreaksbr }}</p>
         <br/>
-        <a href="{% url 'app:news_update' pk=news_item.pk %}">Editar</a>
+        {% if user.is_staff %}
+        <div class="horizontal-div">
+            <form method="post" action="{% url 'app:news_update' pk=news_item.pk %}">
+                {% csrf_token %}
+                <button class="st-button" type="submit">Editar</button>
+            </form>
+            <form method="post" action="{% url 'app:news_delete' pk=news_item.pk %}">
+                {% csrf_token %}
+                <button class="st-button" type="submit" onclick="return confirm('¿Estás seguro de que deseas eliminar esta noticia?')">Eliminar Noticia</button>
+            </form>
+        </div>
+        {% endif %}
     </div>
 {% endblock %}

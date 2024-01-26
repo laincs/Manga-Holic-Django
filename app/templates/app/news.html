@@ -39,6 +39,10 @@
                     <a href="?page={{ num }}">{{ num }}</a>
                 {% endif %}
             {% endfor %}
+
+            {% if user.is_staff %}
+                <a href="{% url 'app:news_create' %}">Crear Nueva Noticia</a>
+            {% endif %}
     
             {% if latest_news.has_next %}
                 <a href="?page={{ latest_news.next_page_number }}"> Siguiente</a>

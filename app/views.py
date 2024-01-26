@@ -14,14 +14,15 @@ def is_staff(user):
 
 class NewsCreateView(CreateView):
     model = News
-    template_name = 'app/news_form.html'
+    template_name = 'app/news_create.html'
     form_class = NewsForm
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        form.instance.author = str(self.request.user)
         return super().form_valid(form)
 
-
+    def get_success_url(self):
+        return reverse_lazy('app:news')
 
 
 class NewsUpdateView(UpdateView):
@@ -38,7 +39,7 @@ class NewsUpdateView(UpdateView):
 class NewsDeleteView(DeleteView):
     model = News
     template_name = 'app/news_confirm_delete.html'
-    success_url = '/news/'
+    success_url = reverse_lazy('app:news')
 
 def home_view(request):
     latest_news = News.objects.all()[:5] 
