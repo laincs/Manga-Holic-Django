@@ -2,7 +2,7 @@
 {% block title %}{% if form.instance.pk %}Editar{% else %}Crear{% endif %} Noticia{% endblock %}
 
 {% block content %}
-  <h1>Editar Noticia</h1>
+  <h1 class="center-div">Editar Noticia</h1>
   <form method="post" enctype="multipart/form-data" class="center-div build-form">
     {% csrf_token %}
     {{ form.as_p }}

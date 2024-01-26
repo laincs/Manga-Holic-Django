@@ -17,9 +17,8 @@
         <br/>
         {% if user.is_staff %}
         <div class="horizontal-div">
-            <form method="post" action="{% url 'app:news_update' pk=news_item.pk %}">
-                {% csrf_token %}
-                <button class="st-button" type="submit">Editar</button>
+            <form method="get" action="{% url 'app:news_update' pk=news_item.pk %}">
+                <button type="submit" class="st-button">Editar</button>
             </form>
             <form method="post" action="{% url 'app:news_delete' pk=news_item.pk %}">
                 {% csrf_token %}

@@ -29,7 +29,6 @@ class NewsUpdateView(UpdateView):
     model = News
     template_name = 'app/news_form.html'
     form_class = NewsForm
-    success_url = reverse_lazy('app:news')
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
@@ -38,8 +37,11 @@ class NewsUpdateView(UpdateView):
         return kwargs
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
+        form.instance.author = str(self.request.user)
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('app:news')
 
 
 class NewsDeleteView(DeleteView):
