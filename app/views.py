@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.views.generic.edit import CreateView
+from django.urls import reverse_lazy
 from .models import News
 from .forms import NewsForm
 
@@ -20,20 +21,24 @@ class NewsCreateView(CreateView):
         form.instance.author = self.request.user
         return super().form_valid(form)
 
+
+
+
 class NewsUpdateView(UpdateView):
     model = News
     template_name = 'app/news_form.html'
     form_class = NewsForm
-
-class NewsUpdateView(UpdateView):
-    model = News
-    template_name = 'app/news_form.html'
-    form_class = NewsUpdateView
     success_url = reverse_lazy('app:news')
 
     def form_valid(self, form):
-        form.instance.author = self.request.user
-        return super().form_valid(form) 
+        form.instance.author = str(self.request.user)
+        return super().form_valid(form)
+
+
+class NewsDeleteView(DeleteView):
+    model = News
+    template_name = 'app/news_confirm_delete.html'
+    success_url = '/news/'
 
 def home_view(request):
     latest_news = News.objects.all()[:5] 
