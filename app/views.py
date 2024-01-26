@@ -18,7 +18,7 @@ class NewsCreateView(CreateView):
     form_class = NewsForm
 
     def form_valid(self, form):
-        form.instance.author = str(self.request.user)
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -31,8 +31,14 @@ class NewsUpdateView(UpdateView):
     form_class = NewsForm
     success_url = reverse_lazy('app:news')
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        # Pasa la instancia de la noticia actual al formulario
+        kwargs['instance'] = self.object
+        return kwargs
+
     def form_valid(self, form):
-        form.instance.author = str(self.request.user)
+        form.instance.author = self.request.user
         return super().form_valid(form)
 
 
@@ -82,7 +88,7 @@ def signup_view(request):
             auth_login(request, user)
             return redirect('app:home')
         else:
-            print(form.errors)  # Muestra los errores en la consola
+            print(form.errors) 
     else:
         form = UserCreationForm()
 
