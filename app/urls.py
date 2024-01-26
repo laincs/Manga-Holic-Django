@@ -1,5 +1,6 @@
 from django.urls import path, re_path
 from .views import home_view, news_view, news_detail_view, ourClients_view, about_view, login_view, signup_view, try_login
+from .views import NewsCreateView, NewsUpdateView, NewsDeleteView
 from django.views.generic import RedirectView
 from django.conf import settings
 from django.conf.urls.static import serve
@@ -19,6 +20,9 @@ urlpatterns = [
     path('about/', about_view, name='about'),
     path('news/', news_view, name='news'),
     path('news_detail/<int:pk>/', news_detail_view, name='news_detail'),
+    path('news/create/', NewsCreateView.as_view(), name='news_create'),
+    path('news/<int:pk>/update/', NewsUpdateView.as_view(), name='news_update'),
+    path('news/<int:pk>/delete/', NewsDeleteView.as_view(), name='news_delete'),
 
     re_path(r'^(?!static/|media/|news_images).*$', RedirectView.as_view(url='/home/'))
 

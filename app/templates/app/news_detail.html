@@ -15,5 +15,6 @@
         <br/>
         <p>{{ news_item.content|linebreaksbr }}</p>
         <br/>
+        <a href="{% url 'app:news_update' pk=news_item.pk %}">Editar</a>
     </div>
 {% endblock %}

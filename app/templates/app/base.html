@@ -33,17 +33,11 @@
         <ul class="navbar-nav">
             <br>
             <li id="item-index" class="nav-item">
-                <a class="title navbar-brand" href="{% url 'app:home' %}" target="_parent">MANGA ⸸ HOLIC</a>
+                <a class="title navbar-brand white-text" href="{% url 'app:home' %}" target="_parent">MANGA ⸸ HOLIC</a>
             </li>
             <br>
             <li id="nav-item" class="nav-item">
                 <a class="nav-link" href="{% url 'app:news' %}" target="_parent">Noticias</a>
-            </li>
-            <li id="nav-item" class="nav-item">
-                <a class="nav-link" href="featured.html" target="_parent">Destacados</a>
-            </li>
-            <li id="nav-item" class="nav-item">
-                <a class="nav-link" href="contact.html" target="_parent">Contacto</a>
             </li>
             <li id="nav-item" class="nav-item">
                 <a class="nav-link" href="{% url 'app:clients' %}" target="_parent">Proveedores</a>
@@ -57,20 +51,15 @@
     <div id="body-content">
         <header>
             <button id="toggleSidebarButton" onclick="setSideBarState()">≡</button>
-            <form method="get">
-                <input type="text" name="q" placeholder="Buscar...">
-                <button type="submit">Buscar</button>
-            </form>
 
             {% if user.is_authenticated %}
                 <div class="saludo">Hola, {{ user.username }}</div>
                 <form method="post" action="{% url 'app:logout' %}">
                     {% csrf_token %}
-                    <button type="submit">Cerrar sesión</button>
+                    <button type="submit" class="st-button">Cerrar sesión</button>
                 </form>
             {% else %}
-                <a href="{% url 'app:login' %}">Iniciar sesión</a>
-                <a href="{% url 'app:signup' %}">Registrarse</a>
+                <a class="white-text right-align" href="{% url 'app:login' %}">Ingresa♥</a>
             {% endif %}
         </header>
 

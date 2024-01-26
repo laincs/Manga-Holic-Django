@@ -6,10 +6,11 @@
 {% endblock %}
 
 {% block content %}
-    <div class="center-div">
-        <h2>Registro</h2>
+    <div class="center-div full-height">
+        <h2>Sé Parte de Nosotros</h2>
         <form method="post" action="{% url 'app:signup' %}">
             {% csrf_token %}
+            <br>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
@@ -21,9 +22,10 @@
 
             <label for="password2">Confirmar Password:</label>
             <input type="password" id="password2" name="password2" required>
-
-            <button type="submit">Registrar</button>
+            <br>
+            <br>
+            <button class="st-button" type="submit">Registrar</button>
         </form>
     </div>
-    <p>¿Ya tienes una cuenta? <a href="{% url 'app:login' %}">Inicia sesión aquí</a>.</p>
+    <p class="center-div">¿Ya tienes una cuenta? <a href="{% url 'app:login' %}">Inicia sesión aquí</a></p>
 {% endblock content %}

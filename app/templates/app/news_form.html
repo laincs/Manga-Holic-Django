@@ -1,0 +1,12 @@
+{% extends 'app/base.html' %}
+{% block title %}{% if form.instance.pk %}Editar{% else %}Crear{% endif %} Noticia{% endblock %}
+
+{% block content %}
+  <h1>{% if form.instance.pk %}Editar{% else %}Crear{% endif %} Noticia</h1>
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Guardar</button>
+  </form>
+  <a href="{% url 'app:news' %}">Volver a la Lista de Noticias</a>
+{% endblock %}

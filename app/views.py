@@ -1,8 +1,39 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth import authenticate, login as auth_login
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.views.generic import ListView, DetailView, UpdateView, DeleteView
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.forms import UserCreationForm
+from django.views.generic.edit import CreateView
 from .models import News
+from .forms import NewsForm
+
+def is_staff(user):
+    return user.is_authenticated and user.is_staff
+
+class NewsCreateView(CreateView):
+    model = News
+    template_name = 'app/news_form.html'
+    form_class = NewsForm
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form)
+
+class NewsUpdateView(UpdateView):
+    model = News
+    template_name = 'app/news_form.html'
+    form_class = NewsForm
+
+class NewsUpdateView(UpdateView):
+    model = News
+    template_name = 'app/news_form.html'
+    form_class = NewsUpdateView
+    success_url = reverse_lazy('app:news')
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super().form_valid(form) 
 
 def home_view(request):
     latest_news = News.objects.all()[:5] 

@@ -6,18 +6,21 @@
 {% endblock %}
 
 {% block content %}
-    <div class="center-div">
-        <h2>Login</h2>
-        <form method="post" action="{% url 'app:try_login' %}">
+    <div class="center-div full-height">
+        <h2>Inicia Sesión</h2>
+        <form method="post" action="{% url 'app:try_login' %}" class="center-div full-width">
             {% csrf_token %}
+            <br>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
 
             <label for="password">Password:</label>
             <input type="password" id="password" name="password" required>
+            <br>
 
-            <button type="submit">Login</button>
+            <button class="st-button" type="submit">Login</button>
+            <br>
         </form>
     </div>
-    <p>¿No tienes una cuenta? <a href="{% url 'app:signup' %}">Regístrate aquí</a>.</p>
+    <p class="center-div">¿No tienes una cuenta? <a href="{% url 'app:signup' %}">Regístrate aquí</a></p>
 {% endblock content %}
